@@ -58,9 +58,6 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_NAPT66=y" >> .config
         echo "CONFIG_FIRMWARE_ENABLE_USB=n" >> .config
 
-        # 强制开启 Shadowsocks 插件
-        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
-        
         # 💡 修复补丁：强制开启 OpenSSL 和 HTTPS，解决 curl 编译报错
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_HTTPS=n/CONFIG_FIRMWARE_INCLUDE_HTTPS=y/' .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/' .config
