@@ -57,6 +57,10 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_NAPT66=y" >> .config
         echo "CONFIG_FIRMWARE_ENABLE_USB=n" >> .config
+
+        # 强制开启 Xray 插件
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_XRAY=n/CONFIG_FIRMWARE_INCLUDE_XRAY=y/' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config
         
         # 💡 修复补丁：强制开启 OpenSSL 和 HTTPS，解决 curl 编译报错
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_HTTPS=n/CONFIG_FIRMWARE_INCLUDE_HTTPS=y/' .config
